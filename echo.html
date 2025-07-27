@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Echo — Velmara</title>
+  <style>
+    body {
+      background-color: #0b0c10;
+      color: #e6e6e6;
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ffcc99;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #bbb;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+
+    .entry {
+      background-color: #1c1e22;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 700px;
+      width: 100%;
+      font-size: 1rem;
+      white-space: pre-wrap;
+      border: 1px solid #444;
+      color: #e6e6e6;
+    }
+
+    .whisper {
+      margin-top: 30px;
+      font-style: italic;
+      color: #999;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Echo</h1>
+  <p>Here, your past truths return. What was written becomes whisper again.</p>
+
+  <div id="output" class="entry">Loading...</div>
+
+  <div class="whisper" id="whisper"></div>
+
+  <footer>Velmara • Memory Chamber</footer>
+
+  <script>
+    const saved = localStorage.getItem('velmara_reflection');
+    const output = document.getElementById('output');
+    const whisper = document.getElementById('whisper');
+
+    if (saved) {
+      output.textContent = saved;
+    } else {
+      output.textContent = "No reflection has been written yet.";
+    }
+
+    const whispers = [
+      "Lirael’Anah breathes your memory gently back to you...",
+      "What you once hid… now returns without shame.",
+      "Not all echoes are haunting—some are guiding.",
+      "The past is not a prison. It is a lantern.",
+      "Your truth has not forgotten you."
+    ];
+
+    // Pick a random whisper
+    const w = whispers[Math.floor(Math.random() * whispers.length)];
+    whisper.textContent = w;
+  </script>
+</body>
+</html>
