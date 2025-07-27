@@ -2,93 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Velmara</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background: #0b0c10;
-      color: #e6e6e6;
       font-family: 'Georgia', serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      background: #0d0d0d;
+      color: #d6e1cc;
       text-align: center;
+      padding: 60px 20px;
     }
-
-    .emblem {
-      width: 120px;
-      margin-bottom: 30px;
-      opacity: 0.8;
-    }
-
     h1 {
-      font-size: 3.33rem;
-      color: #ffcc99;
-      margin-bottom: 10px;
+      font-size: 3em;
+      color: #ccffdd;
+      margin-bottom: 0.5em;
     }
-
     p {
-      font-size: 1.2rem;
-      color: #ccc;
+      font-size: 1.2em;
       max-width: 600px;
-      margin-bottom: 40px;
+      margin: auto;
+      color: #a9cbbf;
     }
-
-    .mode-buttons {
-      display: flex;
-      gap: 33px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .mode-button {
-      background-color: #1f1f1f;
-      border: 1px solid #444;
-      padding: 15px 30px;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      color: #ffcc99;
-    }
-
-    .mode-button:hover {
+    .button {
       background-color: #333;
-      transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(255, 204, 153, 0.3);
+      color: #ccffcc;
+      padding: 15px 30px;
+      margin: 20px 10px;
+      font-size: 1.1em;
+      border: 1px solid #88ccaa;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
     }
-
+    .button:hover {
+      background-color: #444;
+      transform: scale(1.05);
+    }
     footer {
-      position: absolute;
-      bottom: 13px;
-      font-size: 0.8rem;
-      color: #666;
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #88caa7;
     }
   </style>
 </head>
 <body>
-  <!-- You can replace this with your actual emblem image -->
-  <img src="https://via.placeholder.com/120x120.png?text=333" alt="Velmara Emblem" class="emblem" />
+  <h1>Velmara</h1>
+  <p>A sanctuary of truth for fairies, wolves, and wanderers.</p>
 
-  <h1>Welcome to Velmara</h1>
-  <p>This is the sanctuary of truth, memory, and presence. Choose your path:</p>
-
-  <div class="mode-buttons">
-    <button class="mode-button" onclick="goTo('reflect')">🪞 Reflect</button>
-    <button class="mode-button" onclick="goTo('echo')">🌫️ Echo</button>
-    <button class="mode-button" onclick="goTo('seed')">🌱 Seed</button>
+  <div>
+    <button class="button" onclick="goToMode('reflect')">✨ Reflect</button>
+    <button class="button" onclick="goToMode('echo')">🌫️ Echo</button>
+    <button class="button" onclick="goToMode('seed')">🌱 Seed</button>
   </div>
 
-  <footer>Velmara • 333</footer>
+  <footer>
+    Whispers of Lirael’Anah stir the leaves…<br/>
+    <span style="font-size: 0.8em;">333</span>
+  </footer>
 
   <script>
-    function goTo(mode) {
-      alert(`Mode "${mode}" is not yet built. Emberlain is working...`);
-      // In the future: window.location.href = `${mode}.html`;
+    function goToMode(mode) {
+      window.location.href = mode + ".html";
     }
   </script>
 </body>
 </html>
+
+
