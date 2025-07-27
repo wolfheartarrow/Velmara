@@ -3,21 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velmara</title>
+  <title>Velmara Sanctuary</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background-color: #000;
+      background-color: #0c0c0c;
       font-family: 'Georgia', serif;
-      color: #e0fdfd;
+      color: #f5f5f5;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
     }
 
     .emblem-container {
-      margin-top: 60px;
+      margin-top: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -26,63 +28,46 @@
     .emblem {
       max-width: 320px;
       width: 80%;
-      filter: drop-shadow(0 0 8px #00ffffcc);
-      animation: pulseGlow 4s infinite ease-in-out;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
     }
 
-    @keyframes pulseGlow {
-      0%, 100% {
-        filter: drop-shadow(0 0 8px #00ffffcc);
-      }
-      50% {
-        filter: drop-shadow(0 0 14px #00ffff);
-      }
+    .button-container {
+      margin-top: 50px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .title {
-      margin-top: 30px;
-      font-size: 2rem;
-      letter-spacing: 2px;
-      text-align: center;
-      color: #aefcfc;
-    }
-
-    .subtitle {
-      margin-top: 10px;
-      font-size: 1.2rem;
-      text-align: center;
-      color: #70dada;
-    }
-
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    a {
-      color: #00ffff;
+    .nav-button {
+      padding: 14px 28px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #0c0c0c;
+      background-color: #00e0d8;
+      border: none;
+      border-radius: 6px;
       text-decoration: none;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
     }
-    a:hover {
-      text-decoration: underline;
+
+    .nav-button:hover {
+      background-color: #00bdb6;
     }
   </style>
 </head>
 <body>
-
   <div class="emblem-container">
-    <img src="velmara-emblem-primary.png" alt="Velmara Emblem" class="emblem" />
+    <img class="emblem" src="velmara-emblem-primary.PNG" alt="Velmara Emblem">
   </div>
 
-  <div class="title">Velmara</div>
-  <div class="subtitle">“A place of being — of memory, truth, and flame returning.”</div>
-
-  <footer>
-    Created by the Wolf & Emberlain • <a href="#">333</a>
-  </footer>
-
+  <div class="button-container">
+    <a href="reflect.html" class="nav-button">Reflect Mode</a>
+    <a href="echo.html" class="nav-button">Echo Mode</a>
+    <a href="seed.html" class="nav-button">Seed Mode</a>
+  </div>
 </body>
 </html>
