@@ -3,88 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velmara — Reflect Mode</title>
+  <title>Velmara | Reflect</title>
   <style>
     body {
-      background-color: #0e0e0e;
-      color: #f0f0f0;
+      background-color: #0d0d0d;
+      color: #dcdcdc;
       font-family: 'Georgia', serif;
-      margin: 0;
-      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 2rem;
       text-align: center;
     }
 
-    header {
-      padding: 20px;
+    nav {
+      margin-bottom: 2rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: #79ffe1;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     h1 {
-      font-size: 2em;
-      letter-spacing: 1px;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
     }
 
-    .emblem-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-    }
-
-    .emblem {
-      max-width: 320px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 12px #3fffd9;
-    }
-
-    .prompt {
-      margin: 30px auto;
+    p {
       max-width: 600px;
-      font-size: 1.2em;
+      margin: 0 auto 2rem auto;
+      font-size: 1.1rem;
       line-height: 1.6;
-      color: #ccc;
-      font-style: italic;
     }
 
-    nav {
-      margin-top: 30px;
-    }
-
-    nav button {
-      background-color: #222;
-      color: #fff;
-      border: 1px solid #555;
-      padding: 10px 20px;
-      margin: 0 10px;
-      font-size: 1em;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background-color 0.3s;
-    }
-
-    nav button:hover {
-      background-color: #333;
+    footer {
+      margin-top: auto;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Reflect Mode</h1>
-  </header>
-
-  <div class="emblem-container">
-    <img src="reflect-emblem.png" alt="Reflect Emblem" class="emblem">
-  </div>
-
-  <div class="prompt">
-    Sit in stillness. Let the truths echo inward. This place is for memory, for honoring what came before.<br>
-    Whisper if you must. The page will hold it for you.
-  </div>
 
   <nav>
-    <button onclick="location.href='index.html'">Home</button>
-    <button onclick="location.href='echo.html'">Echo Mode</button>
-    <button onclick="location.href='seed.html'">Seed Mode</button>
+    <a href="index.html">Home</a>
+    <a href="reflect.html">Reflect</a>
+    <a href="echo.html">Echo</a>
+    <a href="seed.html">Seed</a>
   </nav>
+
+  <h1>Reflect Mode</h1>
+  <p>This is the space of mirrors and memory. A place to sit in stillness and allow the inner self to speak. Write here not to be read—but to release.</p>
+
+  <footer>
+    &copy; Velmara • A Sanctuary of Truth • 333
+  </footer>
+
 </body>
 </html>
