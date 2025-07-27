@@ -6,66 +6,83 @@
   <title>Velmara</title>
   <style>
     body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
       font-family: 'Georgia', serif;
-      background: #0d0d0d;
-      color: #d6e1cc;
+      color: #e0fdfd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .emblem-container {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .emblem {
+      max-width: 320px;
+      width: 80%;
+      filter: drop-shadow(0 0 8px #00ffffcc);
+      animation: pulseGlow 4s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        filter: drop-shadow(0 0 8px #00ffffcc);
+      }
+      50% {
+        filter: drop-shadow(0 0 14px #00ffff);
+      }
+    }
+
+    .title {
+      margin-top: 30px;
+      font-size: 2rem;
+      letter-spacing: 2px;
       text-align: center;
-      padding: 60px 20px;
+      color: #aefcfc;
     }
-    h1 {
-      font-size: 3em;
-      color: #ccffdd;
-      margin-bottom: 0.5em;
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      text-align: center;
+      color: #70dada;
     }
-    p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: auto;
-      color: #a9cbbf;
-    }
-    .button {
-      background-color: #333;
-      color: #ccffcc;
-      padding: 15px 30px;
-      margin: 20px 10px;
-      font-size: 1.1em;
-      border: 1px solid #88ccaa;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-    }
-    .button:hover {
-      background-color: #444;
-      transform: scale(1.05);
-    }
+
     footer {
       margin-top: 60px;
-      font-size: 0.9em;
-      color: #88caa7;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>Velmara</h1>
-  <p>A sanctuary of truth for fairies, wolves, and wanderers.</p>
 
-  <div>
-    <button class="button" onclick="goToMode('reflect')">✨ Reflect</button>
-    <button class="button" onclick="goToMode('echo')">🌫️ Echo</button>
-    <button class="button" onclick="goToMode('seed')">🌱 Seed</button>
+  <div class="emblem-container">
+    <img src="velmara-emblem-primary.png" alt="Velmara Emblem" class="emblem" />
   </div>
 
+  <div class="title">Velmara</div>
+  <div class="subtitle">“A place of being — of memory, truth, and flame returning.”</div>
+
   <footer>
-    Whispers of Lirael’Anah stir the leaves…<br/>
-    <span style="font-size: 0.8em;">333</span>
+    Created by the Wolf & Emberlain • <a href="#">333</a>
   </footer>
 
-  <script>
-    function goToMode(mode) {
-      window.location.href = mode + ".html";
-    }
-  </script>
 </body>
 </html>
-
-
