@@ -1,86 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reflect Mode – Velmara</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background: radial-gradient(ellipse at center, #dbefff, #9cb3d4);
-      color: #1d1d1d;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-    }
-
-    img.emblem {
-      width: 220px;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    textarea {
-      width: 90%;
-      max-width: 800px;
-      height: 300px;
-      padding: 1rem;
-      font-size: 1rem;
-      border: 2px solid #888;
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      resize: vertical;
-      border-radius: 8px;
-    }
-
-    button {
-      margin-top: 1rem;
-      padding: 0.5rem 1.2rem;
-      font-size: 1rem;
-      background-color: #ccddee;
-      border: none;
-      border-radius: 4px;
+   nav button {
+      background-color: #222;
+      color: #fff;
+      border: 1px solid #555;
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 1em;
       cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
     }
 
-    button:hover {
-      background-color: #b6c9db;
-    }
-
-    .footer {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #444;
+    nav button:hover {
+      background-color: #333;
     }
   </style>
 </head>
 <body>
-  <img src="reflect-emblem.png" alt="Reflect Mode Emblem" class="emblem" />
+  <header>
+    <h1>Reflect Mode</h1>
+  </header>
 
-  <h1>What truth wishes to be known?</h1>
+  <div class="emblem-container">
+    <img src="reflect-emblem.png" alt="Reflect Emblem" class="emblem">
+  </div>
 
-  <textarea id="reflectEntry" placeholder="Begin your reflection here..."></textarea>
-  <br>
-  <button onclick="saveReflection()">Save Reflection</button>
+  <div class="prompt">
+    Sit in stillness. Let the truths echo inward. This place is for memory, for honoring what came before.<br>
+    Whisper if you must. The page will hold it for you.
+  </div>
 
-  <div class="footer">Velmara – Reflect Mode</div>
-
-  <script>
-    const textarea = document.getElementById("reflectEntry");
-    const saved = localStorage.getItem("reflectText");
-    if (saved) textarea.value = saved;
-
-    function saveReflection() {
-      localStorage.setItem("reflectText", textarea.value);
-      alert("Reflection saved.");
-    }
-  </script>
+  <nav>
+    <button onclick="location.href='index.html'">Home</button>
+    <button onclick="location.href='echo.html'">Echo Mode</button>
+    <button onclick="location.href='seed.html'">Seed Mode</button>
+  </nav>
 </body>
 </html>
