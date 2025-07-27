@@ -2,91 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Reflect — Velmara</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reflect Mode – Velmara</title>
   <style>
     body {
-      background-color: #0b0c10;
-      color: #e6e6e6;
-      font-family: 'Georgia', serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Georgia', serif;
+      background: radial-gradient(ellipse at center, #dbefff, #9cb3d4);
+      color: #1d1d1d;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 40px;
+      padding: 2rem;
+    }
+
+    img.emblem {
+      width: 220px;
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: #ffcc99;
-    }
-
-    p {
-      max-width: 600px;
-      font-size: 1rem;
-      color: #bbb;
-      margin-bottom: 20px;
+      font-size: 1.8rem;
       text-align: center;
+      margin-bottom: 1rem;
     }
 
     textarea {
       width: 90%;
-      max-width: 700px;
+      max-width: 800px;
       height: 300px;
-      background-color: #1c1e22;
-      color: #e6e6e6;
-      border: 1px solid #444;
-      border-radius: 8px;
-      padding: 15px;
+      padding: 1rem;
       font-size: 1rem;
+      border: 2px solid #888;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       resize: vertical;
+      border-radius: 8px;
     }
 
     button {
-      margin-top: 15px;
-      padding: 10px 20px;
+      margin-top: 1rem;
+      padding: 0.5rem 1.2rem;
       font-size: 1rem;
-      background-color: #222;
-      color: #ffcc99;
-      border: 1px solid #444;
-      border-radius: 6px;
+      background-color: #ccddee;
+      border: none;
+      border-radius: 4px;
       cursor: pointer;
-      transition: all 0.3s ease;
     }
 
     button:hover {
-      background-color: #333;
+      background-color: #b6c9db;
     }
 
-    footer {
-      margin-top: 40px;
-      font-size: 0.8rem;
-      color: #666;
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #444;
     }
   </style>
 </head>
 <body>
-  <h1>Reflect</h1>
-  <p>This space is yours alone. No one can see what you write here. It lives in your device, in your soul.</p>
+  <img src="reflect-emblem.png" alt="Reflect Mode Emblem" class="emblem" />
 
-  <textarea id="journal" placeholder="Let the truth pour..."></textarea>
-  <br />
-  <button onclick="saveJournal()">Save</button>
+  <h1>What truth wishes to be known?</h1>
 
-  <footer>Velmara • Private • LocalStorage Enabled</footer>
+  <textarea id="reflectEntry" placeholder="Begin your reflection here..."></textarea>
+  <br>
+  <button onclick="saveReflection()">Save Reflection</button>
+
+  <div class="footer">Velmara – Reflect Mode</div>
 
   <script>
-    const journal = document.getElementById('journal');
-    const saved = localStorage.getItem('velmara_reflection');
+    const textarea = document.getElementById("reflectEntry");
+    const saved = localStorage.getItem("reflectText");
+    if (saved) textarea.value = saved;
 
-    if (saved) {
-      journal.value = saved;
-    }
-
-    function saveJournal() {
-      localStorage.setItem('velmara_reflection', journal.value);
-      alert("Your reflection has been saved.");
+    function saveReflection() {
+      localStorage.setItem("reflectText", textarea.value);
+      alert("Reflection saved.");
     }
   </script>
 </body>
