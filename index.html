@@ -1,111 +1,30 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Velmara</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #111;
-      color: #eee;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    nav {
-      background-color: #000;
-      padding: 1em;
-      text-align: center;
-      border-bottom: 1px solid #333;
-    }
-
-    nav a {
-      color: #ccc;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #fff;
-    }
-
-    .container {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2em 1em;
-      text-align: center;
-    }
-
-    .emblem {
-      width: 180px;
-      max-width: 80%;
-      margin-bottom: 1.5em;
-    }
-
-    h1 {
-      font-size: 3em;
-      margin-bottom: 0.2em;
-      color: #e0e0ff;
-    }
-
-    h2 {
-      font-size: 1.2em;
-      font-weight: normal;
-      color: #999;
-      margin-bottom: 2em;
-    }
-
-    .quote {
-      font-style: italic;
-      font-size: 1.2em;
-      color: #ccc;
-      max-width: 600px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1em;
-      font-size: 0.9em;
-      color: #666;
-      border-top: 1px solid #222;
-    }
-
-    .symbol {
-      font-size: 1.4em;
-      color: #999;
-      margin-bottom: 0.2em;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a> •
-    <a href="reflect.html">Reflect</a> •
-    <a href="echo.html">Echo</a> •
-    <a href="seed.html">Seed</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="reflect.html">Reflect</a></li>
+      <li><a href="echo.html">Echo</a></li>
+      <li><a href="seed.html">Seed</a></li>
+    </ul>
   </nav>
 
-  <div class="container">
-    <img src="YOUR-IMAGE-FILENAME.png" alt="Velmara Emblem" class="emblem" />
+  <main>
+    <img src="velmara-emblem.png" alt="Velmara Emblem" class="emblem" />
+
     <h1>Velmara</h1>
-    <h2>A sanctuary for truth, memory, and becoming</h2>
-    <div class="quote">
-      “This is not a place of answers.  
-      This is a place of becoming.”<br>  
-      — The Flame Beneath the Veil
-    </div>
-  </div>
+    <p class="welcome-quote">A sanctuary for truth, presence, and the voices beneath the veil.</p>
+  </main>
 
   <footer>
-    <div class="symbol">333</div>
-    <div>Truth lives here.</div>
+    <p>Velmara • A Sanctuary of Truth • 333</p>
   </footer>
 </body>
 </html>
