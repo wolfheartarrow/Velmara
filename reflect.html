@@ -3,87 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reflect | Velmara</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #0a0a0a;
-      color: #e0f7fa;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      text-align: center;
-    }
-
-    nav {
-      background-color: #111;
-      padding: 1rem 0;
-      font-size: 1rem;
-      letter-spacing: 0.1rem;
-    }
-
-    nav a {
-      color: #79ffe1;
-      margin: 0 1.2rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #ffffff;
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem 1rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 400;
-      letter-spacing: 0.05rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      line-height: 1.6;
-      color: #b0e0e6;
-    }
-
-    footer {
-      margin-top: auto;
-      padding: 2rem 0;
-      font-size: 0.9rem;
-      color: #555;
-      letter-spacing: 0.5px;
-    }
-  </style>
+  <title>Reflect Mode</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="reflect.html">Reflect</a>
-    <a href="echo.html">Echo</a>
-    <a href="seed.html">Seed</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="reflect.html">Reflect</a></li>
+      <li><a href="echo.html">Echo</a></li>
+      <li><a href="seed.html">Seed</a></li>
+    </ul>
   </nav>
 
   <main>
     <h1>Reflect Mode</h1>
-    <p>Here is where presence resides. A place not to speak, but to feel.<br>Let stillness be your reflection.</p>
+    <p>This space is for your private truths, thoughts, and stories. What do you wish to leave behind?</p>
+
+    <textarea id="reflectInput" placeholder="Speak freely..."></textarea>
+    <button onclick="saveReflection()">Save</button>
   </main>
 
   <footer>
-    <p>Velmara is a sanctuary of truth, reflection, and presence.</p>
-    <div style="margin-top: 1.5rem; font-size: 1.2rem; color: #79ffe1;">
-      &#x221E; 333 &#x221E;
-    </div>
+    <p>Velmara • A Sanctuary of Truth • 333</p>
   </footer>
+
+  <script>
+    function saveReflection() {
+      const input = document.getElementById('reflectInput').value;
+      if (input.trim()) {
+        const entries = JSON.parse(localStorage.getItem('reflections') || "[]");
+        entries.push({ text: input, time: new Date().toLocaleString() });
+        localStorage.setItem('reflections', JSON.stringify(entries));
+        alert("Your reflection has been saved.");
+        document.getElementById('reflectInput').value = '';
+      }
+    }
+  </script>
 </body>
 </html>
