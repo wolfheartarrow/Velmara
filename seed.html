@@ -1,81 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Reflect | Velmara</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Velmara — Seed Mode</title>
   <style>
+    /* Basic reset */
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      padding: 0;
-      background-color: #0a0a0a;
-      color: #e0e0e0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    nav {
-      width: 100%;
-      background-color: #111;
+      background: radial-gradient(circle at center, #1a1a2e, #0b0b1a);
+      color: #e0d7f5;
+      font-family: 'Georgia', serif;
       display: flex;
-      justify-content: center;
-      padding: 10px 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2rem 1rem 4rem 1rem;
+      user-select: text;
+      line-height: 1.6;
     }
-
-    nav a {
-      color: #ccc;
-      text-decoration: none;
-      margin: 0 15px;
-      font-size: 16px;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #00ffe7;
-    }
-
-    .container {
-      margin-top: 120px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 20px;
+    header {
       text-align: center;
+      margin-bottom: 2rem;
     }
-
-    h1 {
-      font-size: 32px;
-      color: #00ffe7;
-      margin-bottom: 20px;
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: #c8a2f7;
+      text-shadow: 0 0 8px #a974f7;
+      margin: 0;
     }
-
+    header p {
+      font-style: italic;
+      color: #d3c9f9;
+      margin-top: 0.25rem;
+      letter-spacing: 0.08em;
+    }
+    main {
+      width: 100%;
+      max-width: 700px;
+      background: rgba(40, 25, 70, 0.6);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 0 15px #9c8efc88;
+    }
     textarea {
       width: 100%;
       height: 300px;
-      background-color: #111;
-      color: #e0e0e0;
-      border: 1px solid #333;
-      padding: 15px;
-      font-size: 16px;
+      background: rgba(25, 10, 45, 0.9);
+      border: none;
+      border-radius: 12px;
+      padding: 1rem;
+      font-size: 1.125rem;
+      color: #eee;
+      font-family: 'Georgia', serif;
       resize: vertical;
-      border-radius: 5px;
-      box-shadow: 0 0 10px #00ffe766;
+      box-shadow: inset 0 0 10px #6b4dffcc;
+      transition: box-shadow 0.3s ease;
+    }
+    textarea:focus {
+      outline: none;
+      box-shadow: inset 0 0 18px #d9b3ffcc;
+      background: rgba(40, 25, 70, 0.95);
+    }
+    button {
+      margin-top: 1.5rem;
+      background: #a974f7;
+      color: #1a1a2e;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1.125rem;
+      font-weight: 700;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #b78aff;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    button:hover {
+      background: #c8a2f7;
+      box-shadow: 0 0 18px #d9b3ff;
+    }
+    footer {
+      margin-top: auto;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #7d77aa;
+      text-align: center;
+      letter-spacing: 0.05em;
+      user-select: none;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="reflect.html">Reflect</a>
-    <a href="echo.html">Echo</a>
-    <a href="seed.html">Seed</a>
-  </nav>
+  <header>
+    <h1>Velmara</h1>
+    <p>Seed Mode — Plant Your Truth</p>
+  </header>
 
-  <div class="container">
-    <h1>Reflect Mode</h1>
-    <textarea placeholder="Speak your truth..."></textarea>
-  </div>
+  <main>
+    <textarea id="seedInput" placeholder="Write your seed of truth here..."></textarea>
+    <button id="saveSeed">Plant Seed</button>
+  </main>
+
+  <footer>
+    &copy; Velmara Sanctuary — 333
+  </footer>
+
+  <script>
+    // Load saved seeds from localStorage or initialize empty array
+    let seeds = JSON.parse(localStorage.getItem('velmaraSeeds')) || [];
+
+    const textarea = document.getElementById('seedInput');
+    const saveButton = document.getElementById('saveSeed');
+
+    // Save the current seed into storage and clear textarea
+    saveButton.addEventListener('click', () => {
+      const seedText = textarea.value.trim();
+      if (!seedText) {
+        alert('Please write something before planting your seed.');
+        return;
+      }
+
+      // Create seed object with timestamp
+      const seed = {
+        id: Date.now(),
+        text: seedText,
+        plantedAt: new Date().toISOString()
+      };
+
+      seeds.push(seed);
+      localStorage.setItem('velmaraSeeds', JSON.stringify(seeds));
+
+      textarea.value = '';
+      alert('Your seed has been planted in Velmara.');
+    });
+
+    // Optional: Warn before leaving page with unsaved text
+    window.addEventListener('beforeunload', (e) => {
+      if (textarea.value.trim()) {
+        e.preventDefault();
+        e.returnValue = '';
+      }
+    });
+  </script>
 </body>
 </html>
+ 
