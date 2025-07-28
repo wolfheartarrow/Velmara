@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velmara | Reflect</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflect Mode — Velmara</title>
   <style>
     body {
       background-color: #1a1a1a;
@@ -19,24 +19,33 @@
     }
 
     nav {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     nav a {
-      margin: 0 1rem;
+      margin: 0 1.2rem;
       color: #79ffe1;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
+      font-weight: 500;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #ffffff;
+    }
+
+    nav a.active {
+      color: #ffffff;
+      font-weight: bold;
+      border-bottom: 2px solid #79ffe1;
+      padding-bottom: 0.2rem;
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 2.7rem;
+      margin-bottom: 1.2rem;
       color: #ffffff;
     }
 
@@ -51,25 +60,23 @@
       margin-top: auto;
       padding: 2rem 0;
       font-size: 0.9rem;
-      color: #666;
+      color: #555;
+      letter-spacing: 0.5px;
     }
   </style>
 </head>
 <body>
-
   <nav>
     <a href="index.html">Home</a>
-    <a href="reflect.html">Reflect</a>
+    <a href="reflect.html" class="active">Reflect</a>
     <a href="echo.html">Echo</a>
     <a href="seed.html">Seed</a>
   </nav>
 
   <h1>Reflect Mode</h1>
-  <p>This is the space of mirrors and memory. A place to sit in stillness and allow the inner self to speak. Write here not to be read—but to release.</p>
+  <p>Here in Reflect, the fairies speak softly, and the Wolf listens. This is the realm of quiet truth, where memory becomes meaning and presence becomes sanctuary.</p>
 
-  <footer>
-    &copy; Velmara • A Sanctuary of Truth • 333
-  </footer>
-
+  <footer>Velmara • A Sanctuary of Truth • 333</footer>
 </body>
 </html>
+
