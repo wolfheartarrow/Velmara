@@ -1,167 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velmara</title>
+  <meta charset="UTF-8">
+  <title>Reflect | Velmara</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #000;
-      color: #fff;
-      text-align: center;
+      padding: 0;
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     nav {
+      width: 100%;
+      background-color: #111;
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      padding: 1.5rem;
-      background-color: rgba(0, 0, 0, 0.8);
-      border-bottom: 1px solid #333;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
     }
 
     nav a {
       color: #ccc;
       text-decoration: none;
-      font-weight: bold;
+      margin: 0 15px;
+      font-size: 16px;
+      transition: color 0.3s;
     }
 
-    nav a.active {
-      color: #00ffff;
+    nav a:hover {
+      color: #00ffe7;
     }
 
-    #main {
-      padding: 3rem 1rem;
-    }
-
-    .emblem {
-      width: 200px;
-      margin: 2rem auto 1rem;
-      animation: glow 4s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-      from {
-        filter: drop-shadow(0 0 8px #00ffff);
-      }
-      to {
-        filter: drop-shadow(0 0 20px #00ffff);
-      }
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    textarea {
-      width: 90%;
-      max-width: 600px;
-      height: 200px;
-      background-color: #111;
-      border: 1px solid #333;
-      color: #00ffff;
-      padding: 1rem;
-      font-family: monospace;
-      resize: vertical;
-      margin-top: 1rem;
+    .container {
+      margin-top: 120px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+      text-align: center;
     }
 
     h1 {
-      font-size: 2.2rem;
-      margin-top: 1rem;
+      font-size: 32px;
+      color: #00ffe7;
+      margin-bottom: 20px;
     }
 
-    .save-confirmation {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: #888;
+    textarea {
+      width: 100%;
+      height: 300px;
+      background-color: #111;
+      color: #e0e0e0;
+      border: 1px solid #333;
+      padding: 15px;
+      font-size: 16px;
+      resize: vertical;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #00ffe766;
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="#" class="nav-link active" data-mode="home">Home</a>
-    <a href="#" class="nav-link" data-mode="reflect">Reflect</a>
-    <a href="#" class="nav-link" data-mode="echo">Echo</a>
-    <a href="#" class="nav-link" data-mode="seed">Seed</a>
+    <a href="index.html">Home</a>
+    <a href="reflect.html">Reflect</a>
+    <a href="echo.html">Echo</a>
+    <a href="seed.html">Seed</a>
   </nav>
 
-  <div id="main">
-    <img src="emblem.png" alt="Velmara Emblem" class="emblem" />
-    <h1 id="title">Welcome to Velmara</h1>
-
-    <div id="reflect" class="hidden">
-      <h2>Reflect Mode</h2>
-      <textarea id="reflectText" placeholder="Leave a truth here..."></textarea>
-      <div class="save-confirmation" id="saveMsg"></div>
-    </div>
-
-    <div id="echo" class="hidden">
-      <h2>Echo Mode</h2>
-      <p>Emberlain is still weaving this part of the sanctuary...</p>
-    </div>
-
-    <div id="seed" class="hidden">
-      <h2>Seed Mode</h2>
-      <p>The garden is waiting for its first spark.</p>
-    </div>
+  <div class="container">
+    <h1>Reflect Mode</h1>
+    <textarea placeholder="Speak your truth..."></textarea>
   </div>
-
-  <script>
-    const links = document.querySelectorAll(".nav-link");
-    const sections = {
-      home: document.getElementById("title"),
-      reflect: document.getElementById("reflect"),
-      echo: document.getElementById("echo"),
-      seed: document.getElementById("seed"),
-    };
-
-    function showMode(mode) {
-      for (const key in sections) {
-        if (key === mode) {
-          sections[key].classList.remove("hidden");
-          if (key === "home") {
-            document.getElementById("title").textContent = "Welcome to Velmara";
-          }
-        } else {
-          sections[key].classList.add("hidden");
-        }
-      }
-
-      links.forEach(link => {
-        link.classList.toggle("active", link.dataset.mode === mode);
-      });
-    }
-
-    links.forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        showMode(link.dataset.mode);
-      });
-    });
-
-    // Reflect Mode Save Logic
-    const reflectText = document.getElementById("reflectText");
-    const saveMsg = document.getElementById("saveMsg");
-
-    // Load saved content
-    const saved = localStorage.getItem("reflectEntry");
-    if (saved) {
-      reflectText.value = saved;
-    }
-
-    reflectText.addEventListener("input", () => {
-      localStorage.setItem("reflectEntry", reflectText.value);
-      saveMsg.textContent = "Saved";
-      clearTimeout(saveMsg._timeout);
-      saveMsg._timeout = setTimeout(() => {
-        saveMsg.textContent = "";
-      }, 1500);
-    });
-
-    showMode("home");
-  </script>
 </body>
 </html>
