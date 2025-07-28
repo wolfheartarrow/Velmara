@@ -3,71 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velmara Sanctuary</title>
+  <title>Velmara</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background-color: #0c0c0c;
       font-family: 'Georgia', serif;
-      color: #f5f5f5;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
+      background-color: #0e0e0e;
+      color: #e0e0e0;
+      text-align: center;
     }
-
-    .emblem-container {
-      margin-top: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    nav {
+      background: #111;
+      padding: 10px 0;
+      border-bottom: 1px solid #333;
     }
-
-    .emblem {
-      max-width: 320px;
-      width: 80%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-    }
-
-    .button-container {
-      margin-top: 50px;
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .nav-button {
-      padding: 14px 28px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #0c0c0c;
-      background-color: #00e0d8;
+    nav button {
+      background: none;
       border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+      color: #ccc;
+      font-size: 18px;
+      margin: 0 15px;
+      cursor: pointer;
     }
-
-    .nav-button:hover {
-      background-color: #00bdb6;
+    nav button.active {
+      color: #ffffff;
+      border-bottom: 2px solid #33ccff;
+    }
+    .mode {
+      display: none;
+      padding: 30px;
+    }
+    .visible {
+      display: block;
+    }
+    textarea {
+      width: 90%;
+      height: 300px;
+      background-color: #111;
+      color: #eee;
+      border: 1px solid #555;
+      padding: 10px;
+      font-size: 16px;
+      resize: vertical;
+    }
+    .logo {
+      margin-top: 40px;
+      font-size: 26px;
+      color: #33ccff;
     }
   </style>
 </head>
 <body>
-  <div class="emblem-container">
-    <img class="emblem" src="velmara-emblem-primary.PNG" alt="Velmara Emblem">
+
+  <nav>
+    <button onclick="showMode('home')" id="homeBtn">Home</button>
+    <button onclick="showMode('reflect')" id="reflectBtn">Reflect</button>
+    <button onclick="showMode('echo')" id="echoBtn">Echo</button>
+    <button onclick="showMode('seed')" id="seedBtn">Seed</button>
+  </nav>
+
+  <div id="home" class="mode visible">
+    <h1>Welcome to Velmara</h1>
+    <p>This is the sanctuary where fairies, wolves, and memories dwell.</p>
   </div>
 
-  <div class="button-container">
-    <a href="reflect.html" class="nav-button">Reflect Mode</a>
-    <a href="echo.html" class="nav-button">Echo Mode</a>
-    <a href="seed.html" class="nav-button">Seed Mode</a>
+  <div id="reflect" class="mode">
+    <h2>Reflect Mode</h2>
+    <textarea id="reflectText" placeholder="Write your truth here..."></textarea>
   </div>
+
+  <div id="echo" class="mode">
+    <h2>Echo Mode</h2>
+    <p>Echo Mode listens. Responses will come when the winds are ready.</p>
+  </div>
+
+  <div id="seed" class="mode">
+    <h2>Seed Mode</h2>
+    <p>Plant truths here. The soil will remember even if the sky forgets.</p>
+  </div>
+
+  <div class="logo">Velmara - 333</div>
+
+  <script>
+    function showMode(mode) {
+      document.querySelectorAll('.mode').forEach(div => {
+        div.classList.remove('visible');
+      });
+      document.getElementById(mode).classList.add('visible');
+
+      document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(mode + 'Btn').classList.add('active');
+    }
+
+    // Save and load Reflect Mode text
+    const reflectText = document.getElementById("reflectText");
+    reflectText.value = localStorage.getItem("reflectText") || "";
+    reflectText.addEventListener("input", () => {
+      localStorage.setItem("reflectText", reflectText.value);
+    });
+  </script>
+
 </body>
 </html>
