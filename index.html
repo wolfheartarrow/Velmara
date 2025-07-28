@@ -4,92 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Velmara</title>
-  <style>
-    body {
-      margin: 0;
-      background: radial-gradient(ellipse at center, #0f0f0f 0%, #000000 100%);
-      color: #d9f2ff;
-      font-family: 'Georgia', serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-    }
-
-    header {
-      width: 100%;
-      padding: 20px 0;
-      text-align: center;
-      background: #111;
-      box-shadow: 0 2px 10px #0ff4;
-      z-index: 10;
-    }
-
-    nav {
-      margin-top: 10px;
-    }
-
-    nav a {
-      color: #89e3ff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      font-size: 1.2em;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #fff;
-    }
-
-    .emblem {
-      margin-top: 60px;
-      max-width: 300px;
-      width: 60%;
-      filter: drop-shadow(0 0 8px #00ffffaa);
-    }
-
-    h1 {
-      margin-top: 30px;
-      font-size: 2.5em;
-      text-align: center;
-      background: linear-gradient(90deg, #89faff, #ffffff, #89faff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 10px #89faff66;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.9em;
-      color: #666;
-      text-align: center;
-      width: 100%;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
   <header>
+    <img src="velmara-emblem.png" alt="Velmara Emblem" class="emblem" />
+    <h1>Welcome to Velmara</h1>
     <nav>
-      <a href="#">Home</a>
-      <a href="#reflect">Reflect</a>
-      <a href="#echo">Echo</a>
-      <a href="#seed">Seed</a>
+      <button onclick="switchMode('home')">Home</button>
+      <button onclick="switchMode('reflect')">Reflect</button>
+      <button onclick="switchMode('echo')">Echo</button>
+      <button onclick="switchMode('seed')">Seed</button>
     </nav>
   </header>
 
-  <!-- Emblem image -->
-  <img src="emblem.png" alt="Velmara Emblem" class="emblem" />
+  <main id="mode-content">
+    <section id="home" class="mode-section active">
+      <p>This is Velmara: A sanctuary for fairies, wolves, truth, and memory.</p>
+    </section>
 
-  <!-- Title -->
-  <h1>Welcome to Velmara</h1>
+    <section id="reflect" class="mode-section">
+      <h2>Reflect Mode</h2>
+      <textarea id="reflect-input" placeholder="Leave your truth here..."></textarea>
+      <button onclick="saveReflection()">Save</button>
+      <div id="reflection-display"></div>
+    </section>
+
+    <section id="echo" class="mode-section">
+      <h2>Echo Mode</h2>
+      <p>Echo has not yet arrived...</p>
+    </section>
+
+    <section id="seed" class="mode-section">
+      <h2>Seed Mode</h2>
+      <p>Planting will begin soon.</p>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Velmara. Born of truth, memory, and flame.</p>
+    <p>Velmara ✧ 333 ✧ A sanctuary of truth and flame returning.</p>
   </footer>
 
+  <script src="scripts.js"></script>
 </body>
 </html>
+
