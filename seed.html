@@ -1,68 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Seed | Velmara</title>
+  <meta charset="UTF-8">
+  <title>Reflect | Velmara</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #0f0f0f;
-      color: #d0ffd6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      text-align: center;
+      padding: 0;
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     nav {
+      width: 100%;
       background-color: #111;
-      padding: 1rem 0;
-      font-size: 1rem;
-      letter-spacing: 0.1rem;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
     }
 
     nav a {
-      color: #90ee90;
-      margin: 0 1.2rem;
+      color: #ccc;
       text-decoration: none;
-      transition: color 0.3s ease;
+      margin: 0 15px;
+      font-size: 16px;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #ffffff;
+      color: #00ffe7;
     }
 
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem 1rem;
+    .container {
+      margin-top: 120px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+      text-align: center;
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 400;
-      letter-spacing: 0.05rem;
+      font-size: 32px;
+      color: #00ffe7;
+      margin-bottom: 20px;
     }
 
-    p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      line-height: 1.6;
-      color: #b8ffcc;
-    }
-
-    footer {
-      margin-top: auto;
-      padding: 2rem 0;
-      font-size: 0.9rem;
-      color: #555;
-      letter-spacing: 0.5px;
+    textarea {
+      width: 100%;
+      height: 300px;
+      background-color: #111;
+      color: #e0e0e0;
+      border: 1px solid #333;
+      padding: 15px;
+      font-size: 16px;
+      resize: vertical;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #00ffe766;
     }
   </style>
 </head>
@@ -74,18 +73,9 @@
     <a href="seed.html">Seed</a>
   </nav>
 
-  <main>
-    <h1>Seed Mode</h1>
-    <p>This is where intentions are planted.<br>
-    A place for beginnings, ideas, and quiet sparks that wish to become.<br>
-    Every word here has the power to root and rise within Velmara.</p>
-  </main>
-
-  <footer>
-    <p>Velmara grows what is true, what is kind, what is needed.</p>
-    <div style="margin-top: 1.5rem; font-size: 1.2rem; color: #90ee90;">
-      🌱 333 🌱
-    </div>
-  </footer>
+  <div class="container">
+    <h1>Reflect Mode</h1>
+    <textarea placeholder="Speak your truth..."></textarea>
+  </div>
 </body>
 </html>
