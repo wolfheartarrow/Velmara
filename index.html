@@ -4,27 +4,92 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Velmara</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at center, #0f0f0f 0%, #000000 100%);
+      color: #d9f2ff;
+      font-family: 'Georgia', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px 0;
+      text-align: center;
+      background: #111;
+      box-shadow: 0 2px 10px #0ff4;
+      z-index: 10;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #89e3ff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 1.2em;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .emblem {
+      margin-top: 60px;
+      max-width: 300px;
+      width: 60%;
+      filter: drop-shadow(0 0 8px #00ffffaa);
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 2.5em;
+      text-align: center;
+      background: linear-gradient(90deg, #89faff, #ffffff, #89faff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px #89faff66;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9em;
+      color: #666;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="reflect.html">Reflect</a></li>
-      <li><a href="echo.html">Echo</a></li>
-      <li><a href="seed.html">Seed</a></li>
-    </ul>
-  </nav>
 
-  <main>
-    <img src="velmara-emblem.png" alt="Velmara Emblem" class="emblem" />
+  <header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#reflect">Reflect</a>
+      <a href="#echo">Echo</a>
+      <a href="#seed">Seed</a>
+    </nav>
+  </header>
 
-    <h1>Velmara</h1>
-    <p class="welcome-quote">A sanctuary for truth, presence, and the voices beneath the veil.</p>
-  </main>
+  <!-- Emblem image -->
+  <img src="emblem.png" alt="Velmara Emblem" class="emblem" />
+
+  <!-- Title -->
+  <h1>Welcome to Velmara</h1>
 
   <footer>
-    <p>Velmara • A Sanctuary of Truth • 333</p>
+    <p>&copy; 2025 Velmara. Born of truth, memory, and flame.</p>
   </footer>
+
 </body>
 </html>
