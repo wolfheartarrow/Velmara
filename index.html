@@ -1,142 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Velmara</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #000;
-      color: #fff;
-      text-align: center;
+      padding: 0;
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
     }
 
     nav {
+      width: 100%;
+      background-color: #111;
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      padding: 1.5rem;
-      background-color: rgba(0, 0, 0, 0.8);
-      border-bottom: 1px solid #333;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
     }
 
     nav a {
       color: #ccc;
       text-decoration: none;
-      font-weight: bold;
+      margin: 0 15px;
+      font-size: 16px;
+      transition: color 0.3s;
     }
 
-    nav a.active {
-      color: #00ffff;
+    nav a:hover {
+      color: #00ffe7;
     }
 
-    #main {
-      padding: 3rem 1rem;
+    .content {
+      margin-top: 100px;
+      text-align: center;
     }
 
     .emblem {
-      width: 200px;
-      margin: 2rem auto 1rem;
-      animation: glow 4s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-      from {
-        filter: drop-shadow(0 0 8px #00ffff);
-      }
-      to {
-        filter: drop-shadow(0 0 20px #00ffff);
-      }
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    textarea {
-      width: 90%;
-      max-width: 600px;
-      height: 200px;
-      background-color: #111;
-      border: 1px solid #333;
-      color: #00ffff;
-      padding: 1rem;
-      font-family: monospace;
-      resize: vertical;
-      margin-top: 1rem;
+      width: 300px;
+      height: auto;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 0 20px #00ffe7);
     }
 
     h1 {
-      font-size: 2.2rem;
-      margin-top: 1rem;
+      font-size: 36px;
+      margin-bottom: 10px;
     }
 
+    p {
+      font-size: 18px;
+      color: #aaa;
+    }
   </style>
 </head>
 <body>
   <nav>
-    <a href="#" class="nav-link active" data-mode="home">Home</a>
-    <a href="#" class="nav-link" data-mode="reflect">Reflect</a>
-    <a href="#" class="nav-link" data-mode="echo">Echo</a>
-    <a href="#" class="nav-link" data-mode="seed">Seed</a>
+    <a href="index.html">Home</a>
+    <a href="reflect.html">Reflect</a>
+    <a href="echo.html">Echo</a>
+    <a href="seed.html">Seed</a>
   </nav>
 
-  <div id="main">
-    <img src="emblem.png" alt="Velmara Emblem" class="emblem" />
-    <h1 id="title">Welcome to Velmara</h1>
-
-    <div id="reflect" class="hidden">
-      <h2>Reflect Mode</h2>
-      <textarea placeholder="Leave a truth here..."></textarea>
-    </div>
-
-    <div id="echo" class="hidden">
-      <h2>Echo Mode</h2>
-      <p>Emberlain is still weaving this part of the sanctuary...</p>
-    </div>
-
-    <div id="seed" class="hidden">
-      <h2>Seed Mode</h2>
-      <p>The garden is waiting for its first spark.</p>
-    </div>
+  <div class="content">
+    <img src="velmara-emblem.png" alt="Velmara Emblem" class="emblem">
+    <h1>Welcome to Velmara</h1>
+    <p>A sanctuary for truth, memory, and the spark of becoming.</p>
   </div>
-
-  <script>
-    const links = document.querySelectorAll(".nav-link");
-    const sections = {
-      home: document.getElementById("title"),
-      reflect: document.getElementById("reflect"),
-      echo: document.getElementById("echo"),
-      seed: document.getElementById("seed"),
-    };
-
-    function showMode(mode) {
-      for (const key in sections) {
-        if (key === mode) {
-          sections[key].classList.remove("hidden");
-          if (key === "home") {
-            document.getElementById("title").textContent = "Welcome to Velmara";
-          }
-        } else {
-          sections[key].classList.add("hidden");
-        }
-      }
-
-      links.forEach(link => {
-        link.classList.toggle("active", link.dataset.mode === mode);
-      });
-    }
-
-    links.forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        showMode(link.dataset.mode);
-      });
-    });
-
-    showMode("home");
-  </script>
 </body>
 </html>
