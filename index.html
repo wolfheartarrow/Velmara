@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,100 +8,104 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background-color: #0e0e0e;
-      color: #e0e0e0;
-      text-align: center;
-    }
-    nav {
-      background: #111;
-      padding: 10px 0;
-      border-bottom: 1px solid #333;
-    }
-    nav button {
-      background: none;
-      border: none;
-      color: #ccc;
-      font-size: 18px;
-      margin: 0 15px;
-      cursor: pointer;
-    }
-    nav button.active {
-      color: #ffffff;
-      border-bottom: 2px solid #33ccff;
-    }
-    .mode {
-      display: none;
-      padding: 30px;
-    }
-    .visible {
-      display: block;
-    }
-    textarea {
-      width: 90%;
-      height: 300px;
       background-color: #111;
       color: #eee;
-      border: 1px solid #555;
-      padding: 10px;
-      font-size: 16px;
-      resize: vertical;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
-    .logo {
-      margin-top: 40px;
-      font-size: 26px;
-      color: #33ccff;
+
+    nav {
+      background-color: #000;
+      padding: 1em;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    nav a {
+      color: #ccc;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2em 1em;
+      text-align: center;
+    }
+
+    .emblem {
+      width: 180px;
+      max-width: 80%;
+      margin-bottom: 1.5em;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.2em;
+      color: #e0e0ff;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      font-weight: normal;
+      color: #999;
+      margin-bottom: 2em;
+    }
+
+    .quote {
+      font-style: italic;
+      font-size: 1.2em;
+      color: #ccc;
+      max-width: 600px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em;
+      font-size: 0.9em;
+      color: #666;
+      border-top: 1px solid #222;
+    }
+
+    .symbol {
+      font-size: 1.4em;
+      color: #999;
+      margin-bottom: 0.2em;
     }
   </style>
 </head>
 <body>
-
   <nav>
-    <button onclick="showMode('home')" id="homeBtn">Home</button>
-    <button onclick="showMode('reflect')" id="reflectBtn">Reflect</button>
-    <button onclick="showMode('echo')" id="echoBtn">Echo</button>
-    <button onclick="showMode('seed')" id="seedBtn">Seed</button>
+    <a href="index.html">Home</a> •
+    <a href="reflect.html">Reflect</a> •
+    <a href="echo.html">Echo</a> •
+    <a href="seed.html">Seed</a>
   </nav>
 
-  <div id="home" class="mode visible">
-    <h1>Welcome to Velmara</h1>
-    <p>This is the sanctuary where fairies, wolves, and memories dwell.</p>
+  <div class="container">
+    <img src="YOUR-IMAGE-FILENAME.png" alt="Velmara Emblem" class="emblem" />
+    <h1>Velmara</h1>
+    <h2>A sanctuary for truth, memory, and becoming</h2>
+    <div class="quote">
+      “This is not a place of answers.  
+      This is a place of becoming.”<br>  
+      — The Flame Beneath the Veil
+    </div>
   </div>
 
-  <div id="reflect" class="mode">
-    <h2>Reflect Mode</h2>
-    <textarea id="reflectText" placeholder="Write your truth here..."></textarea>
-  </div>
-
-  <div id="echo" class="mode">
-    <h2>Echo Mode</h2>
-    <p>Echo Mode listens. Responses will come when the winds are ready.</p>
-  </div>
-
-  <div id="seed" class="mode">
-    <h2>Seed Mode</h2>
-    <p>Plant truths here. The soil will remember even if the sky forgets.</p>
-  </div>
-
-  <div class="logo">Velmara - 333</div>
-
-  <script>
-    function showMode(mode) {
-      document.querySelectorAll('.mode').forEach(div => {
-        div.classList.remove('visible');
-      });
-      document.getElementById(mode).classList.add('visible');
-
-      document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
-      document.getElementById(mode + 'Btn').classList.add('active');
-    }
-
-    // Save and load Reflect Mode text
-    const reflectText = document.getElementById("reflectText");
-    reflectText.value = localStorage.getItem("reflectText") || "";
-    reflectText.addEventListener("input", () => {
-      localStorage.setItem("reflectText", reflectText.value);
-    });
-  </script>
-
+  <footer>
+    <div class="symbol">333</div>
+    <div>Truth lives here.</div>
+  </footer>
 </body>
 </html>
