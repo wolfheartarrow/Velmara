@@ -2,122 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Seed — Velmara</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seed | Velmara</title>
   <style>
     body {
-      background-color: #0a0f0a;
-      color: #d7ffd9;
+      margin: 0;
       font-family: 'Georgia', serif;
-      padding: 40px 20px;
+      background-color: #0f0f0f;
+      color: #d0ffd6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
       text-align: center;
     }
 
+    nav {
+      background-color: #111;
+      padding: 1rem 0;
+      font-size: 1rem;
+      letter-spacing: 0.1rem;
+    }
+
+    nav a {
+      color: #90ee90;
+      margin: 0 1.2rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+    }
+
     h1 {
-      color: #b8ffcc;
       font-size: 2.5rem;
-      margin-bottom: 10px;
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+      letter-spacing: 0.05rem;
     }
 
     p {
-      font-size: 1rem;
-      color: #9ef2b7;
-      max-width: 600px;
-      margin: 0 auto 30px;
-    }
-
-    textarea {
-      width: 90%;
+      font-size: 1.1rem;
       max-width: 700px;
-      height: 150px;
-      background-color: #1e2a1e;
-      color: #d7ffd9;
-      border: 1px solid #4a6f4a;
-      padding: 15px;
-      font-family: 'Georgia', serif;
-      font-size: 1rem;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      resize: none;
+      line-height: 1.6;
+      color: #b8ffcc;
     }
 
-    input[type="date"] {
-      background-color: #1e2a1e;
-      color: #d7ffd9;
-      border: 1px solid #4a6f4a;
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 15px;
-    }
-
-    button {
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    .entry {
-      margin-top: 30px;
-      background-color: #1a221a;
-      border: 1px solid #365336;
-      padding: 15px;
-      border-radius: 8px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #c8ffd0;
+    footer {
+      margin-top: auto;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+      color: #555;
+      letter-spacing: 0.5px;
     }
   </style>
 </head>
 <body>
-  <h1>Seed</h1>
-  <p>Plant a message for your future self. It will return to you when the time is right.</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="reflect.html">Reflect</a>
+    <a href="echo.html">Echo</a>
+    <a href="seed.html">Seed</a>
+  </nav>
 
-  <textarea id="seedText" placeholder="Write something for later..."></textarea><br />
-  <input type="date" id="revealDate" />
-  <br />
-  <button onclick="saveSeed()">Plant the Seed</button>
+  <main>
+    <h1>Seed Mode</h1>
+    <p>This is where intentions are planted.<br>
+    A place for beginnings, ideas, and quiet sparks that wish to become.<br>
+    Every word here has the power to root and rise within Velmara.</p>
+  </main>
 
-  <div class="entry" id="output" style="display:none;"></div>
-
-  <script>
-    function saveSeed() {
-      const text = document.getElementById('seedText').value;
-      const date = document.getElementById('revealDate').value;
-      const today = new Date().toISOString().split("T")[0];
-
-      if (!text || !date) {
-        alert("Please write a seed and choose a date.");
-        return;
-      }
-
-      localStorage.setItem('velmara_seed_text', text);
-      localStorage.setItem('velmara_seed_date', date);
-      alert("Your message has been planted.");
-      displaySeed();
-    }
-
-    function displaySeed() {
-      const text = localStorage.getItem('velmara_seed_text');
-      const date = localStorage.getItem('velmara_seed_date');
-      const today = new Date().toISOString().split("T")[0];
-      const output = document.getElementById('output');
-
-      if (text && date && today >= date) {
-        output.textContent = text;
-        output.style.display = 'block';
-      }
-    }
-
-    // Check if seed is ready
-    displaySeed();
-  </script>
+  <footer>
+    <p>Velmara grows what is true, what is kind, what is needed.</p>
+    <div style="margin-top: 1.5rem; font-size: 1.2rem; color: #90ee90;">
+      🌱 333 🌱
+    </div>
+  </footer>
 </body>
 </html>
