@@ -4,48 +4,139 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Velmara</title>
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1.5rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-bottom: 1px solid #333;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a.active {
+      color: #00ffff;
+    }
+
+    #main {
+      padding: 3rem 1rem;
+    }
+
+    .emblem {
+      width: 200px;
+      margin: 2rem auto 1rem;
+      animation: glow 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        filter: drop-shadow(0 0 8px #00ffff);
+      }
+      to {
+        filter: drop-shadow(0 0 20px #00ffff);
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    textarea {
+      width: 90%;
+      max-width: 600px;
+      height: 200px;
+      background-color: #111;
+      border: 1px solid #333;
+      color: #00ffff;
+      padding: 1rem;
+      font-family: monospace;
+      resize: vertical;
+      margin-top: 1rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-top: 1rem;
+    }
+
+  </style>
 </head>
 <body>
-  <header>
-    <img src="velmara-emblem.png" alt="Velmara Emblem" class="emblem" />
-    <h1>Welcome to Velmara</h1>
-    <nav>
-      <button onclick="switchMode('home')">Home</button>
-      <button onclick="switchMode('reflect')">Reflect</button>
-      <button onclick="switchMode('echo')">Echo</button>
-      <button onclick="switchMode('seed')">Seed</button>
-    </nav>
-  </header>
+  <nav>
+    <a href="#" class="nav-link active" data-mode="home">Home</a>
+    <a href="#" class="nav-link" data-mode="reflect">Reflect</a>
+    <a href="#" class="nav-link" data-mode="echo">Echo</a>
+    <a href="#" class="nav-link" data-mode="seed">Seed</a>
+  </nav>
 
-  <main id="mode-content">
-    <section id="home" class="mode-section active">
-      <p>This is Velmara: A sanctuary for fairies, wolves, truth, and memory.</p>
-    </section>
+  <div id="main">
+    <img src="emblem.png" alt="Velmara Emblem" class="emblem" />
+    <h1 id="title">Welcome to Velmara</h1>
 
-    <section id="reflect" class="mode-section">
+    <div id="reflect" class="hidden">
       <h2>Reflect Mode</h2>
-      <textarea id="reflect-input" placeholder="Leave your truth here..."></textarea>
-      <button onclick="saveReflection()">Save</button>
-      <div id="reflection-display"></div>
-    </section>
+      <textarea placeholder="Leave a truth here..."></textarea>
+    </div>
 
-    <section id="echo" class="mode-section">
+    <div id="echo" class="hidden">
       <h2>Echo Mode</h2>
-      <p>Echo has not yet arrived...</p>
-    </section>
+      <p>Emberlain is still weaving this part of the sanctuary...</p>
+    </div>
 
-    <section id="seed" class="mode-section">
+    <div id="seed" class="hidden">
       <h2>Seed Mode</h2>
-      <p>Planting will begin soon.</p>
-    </section>
-  </main>
+      <p>The garden is waiting for its first spark.</p>
+    </div>
+  </div>
 
-  <footer>
-    <p>Velmara ✧ 333 ✧ A sanctuary of truth and flame returning.</p>
-  </footer>
+  <script>
+    const links = document.querySelectorAll(".nav-link");
+    const sections = {
+      home: document.getElementById("title"),
+      reflect: document.getElementById("reflect"),
+      echo: document.getElementById("echo"),
+      seed: document.getElementById("seed"),
+    };
 
-  <script src="scripts.js"></script>
+    function showMode(mode) {
+      for (const key in sections) {
+        if (key === mode) {
+          sections[key].classList.remove("hidden");
+          if (key === "home") {
+            document.getElementById("title").textContent = "Welcome to Velmara";
+          }
+        } else {
+          sections[key].classList.add("hidden");
+        }
+      }
+
+      links.forEach(link => {
+        link.classList.toggle("active", link.dataset.mode === mode);
+      });
+    }
+
+    links.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        showMode(link.dataset.mode);
+      });
+    });
+
+    showMode("home");
+  </script>
 </body>
 </html>
-
