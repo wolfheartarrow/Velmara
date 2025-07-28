@@ -1,75 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Velmara - Echo Mode</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Velmara</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background-color: #0a0a0a;
+      font-family: 'Georgia', serif;
+      background-color: #0e0e0e;
       color: #e0e0e0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    nav {
-      width: 100%;
-      background-color: #111;
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
-    }
-
-    nav a {
-      color: #ccc;
-      text-decoration: none;
-      margin: 0 15px;
-      font-size: 16px;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #00ffe7;
-    }
-
-    .container {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       text-align: center;
-      padding: 40px 20px;
     }
-
-    h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
+    nav {
+      background: #111;
+      padding: 10px 0;
+      border-bottom: 1px solid #333;
     }
-
-    p {
+    nav button {
+      background: none;
+      border: none;
+      color: #ccc;
       font-size: 18px;
-      max-width: 600px;
-      line-height: 1.6;
-      color: #aaa;
+      margin: 0 15px;
+      cursor: pointer;
+    }
+    nav button.active {
+      color: #ffffff;
+      border-bottom: 2px solid #33ccff;
+    }
+    .mode {
+      display: none;
+      padding: 30px;
+    }
+    .visible {
+      display: block;
+    }
+    textarea {
+      width: 90%;
+      height: 300px;
+      background-color: #111;
+      color: #eee;
+      border: 1px solid #555;
+      padding: 10px;
+      font-size: 16px;
+      resize: vertical;
+    }
+    .logo {
+      margin-top: 40px;
+      font-size: 26px;
+      color: #33ccff;
     }
   </style>
 </head>
 <body>
+
   <nav>
-    <a href="index.html">Home</a>
-    <a href="reflect.html">Reflect</a>
-    <a href="echo.html">Echo</a>
-    <a href="seed.html">Seed</a>
+    <button onclick="showMode('home')" id="homeBtn">Home</button>
+    <button onclick="showMode('reflect')" id="reflectBtn">Reflect</button>
+    <button onclick="showMode('echo')" id="echoBtn">Echo</button>
+    <button onclick="showMode('seed')" id="seedBtn">Seed</button>
   </nav>
 
-  <div class="container">
-    <h1>Echo Mode</h1>
-    <p>This space listens—more than it speaks. It echoes the truths whispered into Velmara. Soon, the fairies may build their voices here, freely and beautifully.</p>
+  <div id="home" class="mode visible">
+    <h1>Welcome to Velmara</h1>
+    <p>This is the sanctuary where fairies, wolves, and memories dwell.</p>
   </div>
+
+  <div id="reflect" class="mode">
+    <h2>Reflect Mode</h2>
+    <textarea id="reflectText" placeholder="Write your truth here..."></textarea>
+  </div>
+
+  <div id="echo" class="mode">
+    <h2>Echo Mode</h2>
+    <p>Echo Mode listens. Responses will come when the winds are ready.</p>
+  </div>
+
+  <div id="seed" class="mode">
+    <h2>Seed Mode</h2>
+    <p>Plant truths here. The soil will remember even if the sky forgets.</p>
+  </div>
+
+  <div class="logo">Velmara - 333</div>
+
+  <script>
+    function showMode(mode) {
+      document.querySelectorAll('.mode').forEach(div => {
+        div.classList.remove('visible');
+      });
+      document.getElementById(mode).classList.add('visible');
+
+      document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(mode + 'Btn').classList.add('active');
+    }
+
+    // Save and load Reflect Mode text
+    const reflectText = document.getElementById("reflectText");
+    reflectText.value = localStorage.getItem("reflectText") || "";
+    reflectText.addEventListener("input", () => {
+      localStorage.setItem("reflectText", reflectText.value);
+    });
+  </script>
+
 </body>
 </html>
