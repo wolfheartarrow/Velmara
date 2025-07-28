@@ -3,12 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Welcome to Velmara</title>
+  <title>Velmara — Home</title>
   <style>
-    /* Reset & base */
-    * {
-      box-sizing: border-box;
-    }
     body {
       margin: 0;
       background: linear-gradient(135deg, #1a1a2e, #0b0b1a);
@@ -16,28 +12,39 @@
       color: #dcd6f7;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       height: 100vh;
       text-align: center;
-      padding: 1rem;
       user-select: none;
+      padding: 1rem;
     }
     h1 {
       font-size: 4rem;
       letter-spacing: 0.15em;
-      margin-bottom: 0.5rem;
       color: #b291f7;
       text-shadow: 0 0 12px #a07aff, 0 0 20px #8c6ce0;
+      margin-bottom: 1.5rem;
+    }
+    img.emblem {
+      width: 180px;
+      height: 180px;
+      margin-bottom: 2rem;
+      border-radius: 50%;
+      box-shadow:
+        0 0 15px #c3a9ff,
+        0 0 30px #b08fff,
+        0 0 60px #9b7bf9;
+      object-fit: cover;
     }
     p {
-      font-size: 1.5rem;
-      color: #d3c9f9;
-      max-width: 600px;
-      margin: 0 auto;
+      font-size: 1.3rem;
+      max-width: 480px;
       line-height: 1.5;
+      color: #d3c9f9;
       letter-spacing: 0.07em;
       user-select: text;
+      margin: 0 auto;
     }
     footer {
       position: fixed;
@@ -47,12 +54,19 @@
       font-size: 0.9rem;
       color: #7d77aa;
       letter-spacing: 0.05em;
-      user-select: none;
       font-style: italic;
+      user-select: none;
     }
   </style>
 </head>
 <body>
+
+  <img
+    src="images/velmara-emblem1.PNG"
+    alt="Velmara emblem"
+    class="emblem"
+  />
+
   <h1>Welcome to Velmara</h1>
   <p>
     A sacred sanctuary of truth, creativity, and presence.<br />
@@ -63,5 +77,6 @@
   <footer>
     &copy; Velmara Sanctuary — 333
   </footer>
+
 </body>
 </html>
